@@ -3,6 +3,7 @@ package com.example.mqtt;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
@@ -14,13 +15,23 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import pl.pawelkleczkowski.customgauge.CustomGauge;
+
 public class MainActivity extends AppCompatActivity {
     MqttAndroidClient client;
-
+    // Card 1
     Switch Switch1;
     String Switch1estado;
     Switch Switch3;
     String Switch3estado;
+
+    // Card 2 y 3
+    CustomGauge gaugeLuz;
+    TextView txtgaugeLuz;
+
+    CustomGauge gaugeAcel;
+    TextView txtgaugeAcel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +45,18 @@ public class MainActivity extends AppCompatActivity {
 
         //Fin Card1
 
+        //Inicio Card 2 y 3
+        gaugeLuz = (CustomGauge) findViewById(R.id.gauge1);
+        txtgaugeLuz = (TextView) findViewById(R.id.valueGauge1);
+
+        gaugeAcel = (CustomGauge) findViewById(R.id.gauge2);
+        txtgaugeAcel = (TextView) findViewById(R.id.valueGauge2);
+
+        //Fin Card 2 y 3
+
         String clientId = MqttClient.generateClientId();
         client =
-                new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.0.20:1883",
+                new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.0.22:1883",
                         clientId);
 
         try {
@@ -89,6 +109,18 @@ public class MainActivity extends AppCompatActivity {
                         Switch3.setChecked(false);
                     }
                 }
+
+                // Card 2 y 3
+
+                if(topic.matches("IoT/Luz")){
+                    gaugeLuz.setValue(Integer.parseInt(new String(message.getPayload())));
+                    txtgaugeLuz.setText(new String(message.getPayload()));
+                }
+                if(topic.matches("IoT/Aceleracion")){
+                    gaugeAcel.setValue(Integer.parseInt(new String(message.getPayload())));
+                    txtgaugeAcel.setText(new String(message.getPayload()));
+                }
+
             }
 
             @Override
@@ -102,7 +134,8 @@ public class MainActivity extends AppCompatActivity {
         try{
             client.subscribe("esp_mini/frdmkl46z/LED_SW1",0);
             client.subscribe("esp_mini/frdmkl46z/LED_SW3",0);
-            client.subscribe("IoT/Temp",0);
+            client.subscribe("IoT/Aceleracion",0);
+            client.subscribe("IoT/Luz",0);
             client.subscribe("IoT/Led1",0);
             client.subscribe("IoT/Led2",0);
 
