@@ -25,12 +25,15 @@ public class MainActivity extends AppCompatActivity {
     Switch Switch3;
     String Switch3estado;
 
-    // Card 2 y 3
+    // Card 2 3 y 3.1
     CustomGauge gaugeLuz;
     TextView txtgaugeLuz;
 
     CustomGauge gaugeAcel;
     TextView txtgaugeAcel;
+
+    CustomGauge gaugeHumedad;
+    TextView txtgaugeHumedad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         gaugeAcel = (CustomGauge) findViewById(R.id.gauge2);
         txtgaugeAcel = (TextView) findViewById(R.id.valueGauge2);
+
+        gaugeHumedad = (CustomGauge) findViewById(R.id.gauge31);
+        txtgaugeHumedad = (TextView) findViewById(R.id.valueGauge3);
 
         //Fin Card 2 y 3
 
@@ -121,6 +127,10 @@ public class MainActivity extends AppCompatActivity {
                     txtgaugeAcel.setText(new String(message.getPayload()));
                 }
 
+                if(topic.matches("IoT/Humedad")){
+                    gaugeHumedad.setValue(Integer.parseInt(new String(message.getPayload())));
+                    txtgaugeHumedad.setText(new String(message.getPayload()));
+                }
             }
 
             @Override
@@ -136,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
             client.subscribe("esp_mini/frdmkl46z/LED_SW3",0);
             client.subscribe("IoT/Aceleracion",0);
             client.subscribe("IoT/Luz",0);
+            client.subscribe("IoT/Humedad",0);
             client.subscribe("IoT/Led1",0);
             client.subscribe("IoT/Led2",0);
 
