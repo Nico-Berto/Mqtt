@@ -43,7 +43,11 @@ public class MainActivity extends AppCompatActivity {
     //Card 6
     TextView txtTempSensor;
 
-    Button ButtonOnVerde;
+    //Card 8, 9 y 10
+    Button ButtonOnVerde,ButtonOffVerde,ButtonToggleVerde;
+
+    // Card 12, 13 y 14
+    Button ButtonOnRojo,ButtonOffRojo,ButtonToggleRojo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +83,15 @@ public class MainActivity extends AppCompatActivity {
 
         //Card 8, 9 y 10
         ButtonOnVerde = (Button) findViewById(R.id.EncenderLedVerde);
+        ButtonOffVerde = (Button) findViewById(R.id.ApagarLedVerde);
+        ButtonToggleVerde = (Button) findViewById(R.id.ToggleLedVerde);
         //Fin card 8,9 y 10
+
+        // Card 12, 13 y 14
+        ButtonOnRojo = (Button) findViewById(R.id.EncenderLedRojo);
+        ButtonOffRojo = (Button) findViewById(R.id.ApagarLedRojo);
+        ButtonToggleRojo = (Button) findViewById(R.id.ToggleLedRojo);
+        //Fin Card 12, 13 y 14
 
         ButtonOnVerde.setOnClickListener(new OnClickListener() {
             @Override
@@ -95,6 +107,75 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ButtonOffVerde.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String topic = "IoT/ledVerde";
+                String payload = "OFF";
+
+                try{
+                    client.publish(topic,payload.getBytes(),0, false);
+                } catch (MqttException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ButtonToggleVerde.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String topic = "IoT/ledVerde";
+                String payload = "Toggle";
+
+                try{
+                    client.publish(topic,payload.getBytes(),0, false);
+                } catch (MqttException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ButtonOnRojo.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String topic = "IoT/ledRojo";
+                String payload = "ON";
+
+                try{
+                    client.publish(topic,payload.getBytes(),0, false);
+                } catch (MqttException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ButtonOffRojo.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String topic = "IoT/ledRojo";
+                String payload = "OFF";
+
+                try{
+                    client.publish(topic,payload.getBytes(),0, false);
+                } catch (MqttException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ButtonToggleRojo.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String topic = "IoT/ledRojo";
+                String payload = "Toggle";
+
+                try{
+                    client.publish(topic,payload.getBytes(),0, false);
+                } catch (MqttException e){
+                    e.printStackTrace();
+                }
+            }
+        });
         String clientId = MqttClient.generateClientId();
         client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.0.20:1883",
                         clientId);

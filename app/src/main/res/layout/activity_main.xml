@@ -498,16 +498,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    //Titulo Boton ON Verde
-                    <TextView
-                        android:id="@+id/TituloencenderledVerde"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="20dp"
-                        android:textStyle="bold"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:layout_gravity="center_horizontal" />
+                    //Boton ON Verde
 
                     <Button
                         android:id="@+id/EncenderLedVerde"
@@ -523,7 +514,7 @@
 
             //Fin Card 8
 
-            // Inicio card 8
+            // Inicio Card9
 
         <androidx.cardview.widget.CardView
             android:id="@+id/Card9"
@@ -535,26 +526,16 @@
             android:background="@color/colorPrimaryDark"
             app:cardCornerRadius="20dp">
 
-        //Inicio Gauge 2
+        //Inicio Boton OFF Verde
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            //Titulo Gauge 2
-            <TextView
-                android:id="@+id/ApagarLedVerde"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:textAlignment="center"
-                android:layout_gravity="center_horizontal" />
-
+            //Boton OFF Verde
 
                     <Button
-                        android:id="@+id/Apagar"
+                        android:id="@+id/ApagarLedVerde"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="0dp"
@@ -563,29 +544,10 @@
 
                 </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+        </androidx.cardview.widget.CardView>
+            // Fin card 9
 
-                    <TextView
-                        android:id="@+id/ApagarledVerde"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingTop="20dp"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal" />
-
-
-                </LinearLayout>
-                //Fin boton 1
-
-            </androidx.cardview.widget.CardView>
-            // Fin card 8
-
-            // Inicio Card 9
+            // Inicio Card 10
             <androidx.cardview.widget.CardView
                 android:id="@+id/Card10"
                 android:layout_below="@id/Card7"
@@ -596,57 +558,28 @@
                 android:background="@color/colorPrimaryDark"
                 app:cardCornerRadius="10dp">
 
-                //Inicio Gauge 2
+                //Inicio Botn toggle verde
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    //Titulo Gauge 2
-                    <TextView
-                        android:id="@+id/TogglearLedVerde"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="10dp"
-                        android:textStyle="bold"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:layout_gravity="center_horizontal" />
-
+                    //Boton toggle Verde
 
                     <Button
-                        android:id="@+id/ToggleVerde"
+                        android:id="@+id/ToggleLedVerde"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="0dp"
                         android:layout_marginBottom="0dp"
                         android:text="TOGGLE"/>
 
-
                 </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/TogglearledVerde"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingTop="20dp"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal" />
-
-
-                </LinearLayout>
-                //Fin boton 1
-
             </androidx.cardview.widget.CardView>
-            //Fin Card 9
+            //Fin Card 10
 
+            // Inicio Card 11
             // Boton Rojo
 
             <androidx.cardview.widget.CardView
@@ -658,14 +591,10 @@
                 android:background="@color/colorPrimaryDark"
                 app:cardCornerRadius="20dp">
 
-                //Inicio Gauge 1
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
-                    //Titulo Gauge 1
 
                     <TextView
                         android:id="@+id/TituloLedRojo"
@@ -686,7 +615,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/valueTitulopulR"
+                        android:id="@+id/valueTituloLedRojo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center_horizontal"
@@ -695,13 +624,12 @@
                         android:textSize="15dp"
                         android:textStyle="bold" />
 
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-            // Fin card 6
+            // Fin card 11
 
-            // Inicio car 7, 8 y 9
+            // Inicio card 12, 13 y 14
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Card12"
@@ -712,58 +640,26 @@
                 android:background="@color/colorPrimaryDark"
                 app:cardCornerRadius="10dp">
 
-                //Inicio Gauge 1
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    //Titulo Gauge 1
-                    <TextView
-                        android:id="@+id/TituloEncenderLedRojo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="20dp"
-                        android:textStyle="bold"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:layout_gravity="center_horizontal" />
-
                     <Button
-                        android:id="@+id/EncenderRojo"
+                        android:id="@+id/EncenderLedRojo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="0dp"
                         android:layout_marginBottom="0dp"
                         android:text="ON"/>
 
-
                 </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/EncenderLedRojo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingTop="20dp"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal" />
-
-
-                </LinearLayout>
-                //Fin boton 1
 
             </androidx.cardview.widget.CardView>
 
-            //Fin Card 11
+            //Fin Card 12
 
-            // Inicio card 12
+            // Inicio card 13
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Card13"
@@ -775,58 +671,25 @@
                 android:background="@color/colorPrimaryDark"
                 app:cardCornerRadius="10dp">
 
-                //Inicio Gauge 2
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    //Titulo Gauge 2
-                    <TextView
-                        android:id="@+id/ApagarLedRojo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="10dp"
-                        android:textStyle="bold"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:layout_gravity="center_horizontal" />
-
-
                     <Button
-                        android:id="@+id/ApagarLR"
+                        android:id="@+id/ApagarLedRojo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="0dp"
                         android:layout_marginBottom="0dp"
                         android:text="OFF"/>
 
-
                 </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/ApagarlR"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingTop="20dp"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal" />
-
-
-                </LinearLayout>
-                //Fin boton 1
-
             </androidx.cardview.widget.CardView>
-            // Fin card 12
+            // Fin card 13
 
-            // Inicio Card 13
+            // Inicio Card 14
             <androidx.cardview.widget.CardView
                 android:id="@+id/Card14"
                 android:layout_below="@id/Card11"
@@ -837,26 +700,13 @@
                 android:background="@color/colorPrimaryDark"
                 app:cardCornerRadius="10dp">
 
-                //Inicio Gauge 2
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    //Titulo Gauge 2
-                    <TextView
-                        android:id="@+id/TogglearLedRojo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="10dp"
-                        android:textStyle="bold"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:layout_gravity="center_horizontal" />
-
-
                     <Button
-                        android:id="@+id/ToggleRojo"
+                        android:id="@+id/ToggleLedRojo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="0dp"
@@ -865,26 +715,6 @@
 
 
                 </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/TogglearledRojo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingTop="20dp"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal" />
-
-
-                </LinearLayout>
-                //Fin boton 1
-
             </androidx.cardview.widget.CardView>
 
             // Fin boton rojo
