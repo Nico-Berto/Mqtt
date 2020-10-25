@@ -96,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
         ButtonOnVerde.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topic = "IoT/ledVerde";
-                String payload = "ON";
+                String topic = "esp_mini/frdmkl46z";
+                String payload = "LVON";
 
                 try{
                     client.publish(topic,payload.getBytes(),0, false);
@@ -110,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
         ButtonOffVerde.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topic = "IoT/ledVerde";
-                String payload = "OFF";
+                String topic = "esp_mini/frdmkl46z";
+                String payload = "LVOFF";
 
                 try{
                     client.publish(topic,payload.getBytes(),0, false);
@@ -124,8 +124,8 @@ public class MainActivity extends AppCompatActivity {
         ButtonToggleVerde.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topic = "IoT/ledVerde";
-                String payload = "Toggle";
+                String topic = "esp_mini/frdmkl46z";
+                String payload = "LVT";
 
                 try{
                     client.publish(topic,payload.getBytes(),0, false);
@@ -138,8 +138,8 @@ public class MainActivity extends AppCompatActivity {
         ButtonOnRojo.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topic = "IoT/ledRojo";
-                String payload = "ON";
+                String topic = "esp_mini/frdmkl46z";
+                String payload = "LRON";
 
                 try{
                     client.publish(topic,payload.getBytes(),0, false);
@@ -152,8 +152,8 @@ public class MainActivity extends AppCompatActivity {
         ButtonOffRojo.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topic = "IoT/ledRojo";
-                String payload = "OFF";
+                String topic = "esp_mini/frdmkl46z";
+                String payload = "LROFF";
 
                 try{
                     client.publish(topic,payload.getBytes(),0, false);
@@ -166,8 +166,8 @@ public class MainActivity extends AppCompatActivity {
         ButtonToggleRojo.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String topic = "IoT/ledRojo";
-                String payload = "Toggle";
+                String topic = "esp_mini/frdmkl46z";
+                String payload = "LRT";
 
                 try{
                     client.publish(topic,payload.getBytes(),0, false);
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         String clientId = MqttClient.generateClientId();
-        client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.0.20:1883",
+        client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.0.28:1883",
                         clientId);
 
         try {
@@ -233,25 +233,25 @@ public class MainActivity extends AppCompatActivity {
 
                 // Card 2 y 3
 
-                if(topic.matches("IoT/Luz")){
+                if(topic.matches("esp_mini/frdmkl46z/ToNodeRed/LUZ")){
                     gaugeLuz.setValue(Integer.parseInt(new String(message.getPayload())));
                     txtgaugeLuz.setText(new String(message.getPayload()));
                 }
-                if(topic.matches("IoT/Aceleracion")){
+                if(topic.matches("esp_mini/frdmkl46z/ToNodeRed/ACC")){
                     gaugeAcel.setValue(Integer.parseInt(new String(message.getPayload())));
                     txtgaugeAcel.setText(new String(message.getPayload()));
                 }
 
-                if(topic.matches("IoT/Humedad")){
+                if(topic.matches("esp_8266/HUMEDAD")){
                     gaugeHumedad.setValue(Integer.parseInt(new String(message.getPayload())));
                     txtgaugeHumedad.setText(new String(message.getPayload()));
                 }
 
-                if(topic.matches("IoT/tempRpi")){
+                if(topic.matches("servidor/cpu/temperatura")){
                     String tempRaspy = new String(message.getPayload());
                     txtTempRpi.setText(tempRaspy  + " ºC");
                 }
-                if(topic.matches("IoT/tempSensor")){
+                if(topic.matches("esp_8266/TEMPSENSOR")){
                     String tempsensor = new String(message.getPayload());
                     txtTempSensor.setText(tempsensor + " ºC");
                 }
@@ -269,11 +269,11 @@ public class MainActivity extends AppCompatActivity {
         try{
             client.subscribe("esp_mini/frdmkl46z/LED_SW1",0);
             client.subscribe("esp_mini/frdmkl46z/LED_SW3",0);
-            client.subscribe("IoT/Aceleracion",0);
-            client.subscribe("IoT/Luz",0);
-            client.subscribe("IoT/Humedad",0);
-            client.subscribe("IoT/tempRpi",0);
-            client.subscribe("IoT/tempSensor",0);
+            client.subscribe("esp_mini/frdmkl46z/ToNodeRed/ACC",0);
+            client.subscribe("esp_mini/frdmkl46z/ToNodeRed/LUZ",0);
+            client.subscribe("esp_8266/HUMEDAD",0);
+            client.subscribe("servidor/cpu/temperatura",0);
+            client.subscribe("esp_8266/TEMPSENSOR",0);
 
         }catch (MqttException e){
             e.printStackTrace();
