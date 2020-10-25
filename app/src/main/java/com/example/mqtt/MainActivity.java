@@ -2,6 +2,9 @@ package com.example.mqtt;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Switch Switch3;
     String Switch3estado;
 
-    // Card 2 3 y 3.1
+    // Card 2 3 y 4
     CustomGauge gaugeLuz;
     TextView txtgaugeLuz;
 
@@ -35,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
     CustomGauge gaugeHumedad;
     TextView txtgaugeHumedad;
 
+    //Card 5
+    TextView txtTempRpi;
+    //Card 6
+    TextView txtTempSensor;
+
+    Button ButtonOnVerde;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,21 +57,46 @@ public class MainActivity extends AppCompatActivity {
 
         //Fin Card1
 
-        //Inicio Card 2 y 3
-        gaugeLuz = (CustomGauge) findViewById(R.id.gauge1);
-        txtgaugeLuz = (TextView) findViewById(R.id.valueGauge1);
+        //Inicio Card 2, 3 y 4
+        gaugeLuz = (CustomGauge) findViewById(R.id.GaugeLuz);
+        txtgaugeLuz = (TextView) findViewById(R.id.ValueGaugeLuz);
 
-        gaugeAcel = (CustomGauge) findViewById(R.id.gauge2);
-        txtgaugeAcel = (TextView) findViewById(R.id.valueGauge2);
+        gaugeAcel = (CustomGauge) findViewById(R.id.GaugeAceleracion);
+        txtgaugeAcel = (TextView) findViewById(R.id.ValueGaugeAceleracion);
 
-        gaugeHumedad = (CustomGauge) findViewById(R.id.gauge31);
-        txtgaugeHumedad = (TextView) findViewById(R.id.valueGauge3);
+        gaugeHumedad = (CustomGauge) findViewById(R.id.GaugeHumedad);
+        txtgaugeHumedad = (TextView) findViewById(R.id.ValueGaugeHumedad);
 
-        //Fin Card 2 y 3
+        //Fin Card 2, 3 y 4
+
+        //Inicio Card5
+        txtTempRpi = (TextView) findViewById(R.id.textTempRpi);
+        //Fin Car5
+
+        //Inicio Card6
+        txtTempSensor = (TextView) findViewById(R.id.textTempSensor);
+        //Fin Card7
+
+        //Card 8, 9 y 10
+        ButtonOnVerde = (Button) findViewById(R.id.EncenderLedVerde);
+        //Fin card 8,9 y 10
+
+        ButtonOnVerde.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String topic = "IoT/ledVerde";
+                String payload = "ON";
+
+                try{
+                    client.publish(topic,payload.getBytes(),0, false);
+                } catch (MqttException e){
+                    e.printStackTrace();
+                }
+            }
+        });
 
         String clientId = MqttClient.generateClientId();
-        client =
-                new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.0.22:1883",
+        client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.0.20:1883",
                         clientId);
 
         try {
@@ -131,6 +165,15 @@ public class MainActivity extends AppCompatActivity {
                     gaugeHumedad.setValue(Integer.parseInt(new String(message.getPayload())));
                     txtgaugeHumedad.setText(new String(message.getPayload()));
                 }
+
+                if(topic.matches("IoT/tempRpi")){
+                    String tempRaspy = new String(message.getPayload());
+                    txtTempRpi.setText(tempRaspy  + " ºC");
+                }
+                if(topic.matches("IoT/tempSensor")){
+                    String tempsensor = new String(message.getPayload());
+                    txtTempSensor.setText(tempsensor + " ºC");
+                }
             }
 
             @Override
@@ -138,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
     private void suscripcionTopics(){
 
@@ -147,8 +191,8 @@ public class MainActivity extends AppCompatActivity {
             client.subscribe("IoT/Aceleracion",0);
             client.subscribe("IoT/Luz",0);
             client.subscribe("IoT/Humedad",0);
-            client.subscribe("IoT/Led1",0);
-            client.subscribe("IoT/Led2",0);
+            client.subscribe("IoT/tempRpi",0);
+            client.subscribe("IoT/tempSensor",0);
 
         }catch (MqttException e){
             e.printStackTrace();

@@ -56,7 +56,7 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-                    //Switch1
+                    //SwitchLed1
 
                     <Switch
                         android:id="@+id/Switch1"
@@ -82,9 +82,7 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-
                 </LinearLayout>
-
 
             </androidx.cardview.widget.CardView>
 
@@ -108,17 +106,17 @@
                     android:orientation="vertical"
                     app:cardCornerRadius="20dp">
 
-                    //Inicio Gauge 1
+                    //Inicio GaugeLuz
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        //Titulo Gauge 1
+                        //Titulo Gauge Luz
 
                         <TextView
-                            android:id="@+id/TituloGauge1"
+                            android:id="@+id/TituloGaugeLuz"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -128,12 +126,11 @@
                             android:textSize="15dp"
                             android:textStyle="bold" />
 
-
                         <pl.pawelkleczkowski.customgauge.CustomGauge
-                            android:id="@+id/gauge1"
+                            android:id="@+id/GaugeLuz"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/TituloGauge1"
+                            android:layout_below="@+id/TituloGaugeLuz"
                             android:layout_centerHorizontal="true"
                             android:padding="10dp"
                             app:gaugeEndValue="100"
@@ -146,7 +143,6 @@
                             app:gaugeStrokeWidth="10dp"
                             app:gaugeSweepAngle="270" />
 
-
                     </RelativeLayout>
 
                     <LinearLayout
@@ -155,7 +151,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/valueGauge1"
+                            android:id="@+id/ValueGaugeLuz"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center_horizontal"
@@ -165,15 +161,12 @@
                             android:textSize="15dp"
                             android:textStyle="bold" />
 
-
                     </LinearLayout>
-                    //Fin Gauge 1
-
+                    //Fin Gauge Luz
 
                 </androidx.cardview.widget.CardView>
 
                 //Fin Card2
-
                 //Inicio Card3
 
                 <androidx.cardview.widget.CardView
@@ -185,17 +178,17 @@
                     android:orientation="vertical"
                     app:cardCornerRadius="20dp">
 
-                    //Inicio Gauge 2
+                    //Inicio GaugeAceleracion
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        //Titulo Gauge 2
+                        //Titulo GaugeAceleracion
 
                         <TextView
-                            android:id="@+id/TituloGauge2"
+                            android:id="@+id/TituloGaugeAceleracion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -207,10 +200,10 @@
 
 
                         <pl.pawelkleczkowski.customgauge.CustomGauge
-                            android:id="@+id/gauge2"
+                            android:id="@+id/GaugeAceleracion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/TituloGauge2"
+                            android:layout_below="@+id/TituloGaugeAceleracion"
                             android:layout_centerHorizontal="true"
                             android:padding="10dp"
                             app:gaugeEndValue="100"
@@ -232,7 +225,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/valueGauge2"
+                            android:id="@+id/ValueGaugeAceleracion"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_horizontal"
@@ -244,16 +237,16 @@
 
 
                     </LinearLayout>
-                    //Fin Gauge 2
+                    //Fin GaugeAceleracion
 
                 </androidx.cardview.widget.CardView>
 
                 //Fin Card3
 
-                //Inicio Card3.1
+                //Inicio Card4
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/Card31"
+                    android:id="@+id/Card4"
                     android:layout_width="120dp"
                     android:layout_height="200dp"
                     android:layout_marginLeft="10dp"
@@ -261,17 +254,17 @@
                     android:orientation="vertical"
                     app:cardCornerRadius="20dp">
 
-                    //Inicio Gauge 2
+                    //Inicio GaugeHumedad
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        //Titulo Gauge 31
+                        //Titulo GaugeHumedad
 
                         <TextView
-                            android:id="@+id/TituloGauge31"
+                            android:id="@+id/TituloGaugeHumedad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
@@ -283,10 +276,10 @@
 
 
                         <pl.pawelkleczkowski.customgauge.CustomGauge
-                            android:id="@+id/gauge31"
+                            android:id="@+id/GaugeHumedad"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/TituloGauge31"
+                            android:layout_below="@+id/TituloGaugeHumedad"
                             android:layout_centerHorizontal="true"
                             android:padding="10dp"
                             app:gaugeEndValue="100"
@@ -299,7 +292,6 @@
                             app:gaugeStrokeWidth="10dp"
                             app:gaugeSweepAngle="270" />
 
-
                     </RelativeLayout>
 
                     <LinearLayout
@@ -308,7 +300,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/valueGauge3"
+                            android:id="@+id/ValueGaugeHumedad"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_horizontal"
@@ -318,18 +310,17 @@
                             android:textSize="15dp"
                             android:textStyle="bold" />
 
-
                     </LinearLayout>
-                    //Fin Gauge 3
+                    //Fin GaugeHumedad
 
                 </androidx.cardview.widget.CardView>
-                // Fin card31
+                // Fin Card4
             </LinearLayout>
 
-            //Inicio card4
+            //Inicio Card5
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/Card4"
+                android:id="@+id/Card5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/SecPot"
@@ -342,7 +333,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    //Titulo card4
+                    //Titulo Card5
 
                     <TextView
                         android:layout_width="match_parent"
@@ -353,17 +344,19 @@
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
-
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-
 
                         <TextView
                             android:id="@+id/textTempRpi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
                             android:text="__._°C"
                             android:textSize="40dp"
                             android:textStyle="bold" />
@@ -372,75 +365,18 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_alignParentRight="true"
-                            android:layout_margin="10dp" />
-
-
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            //Fin card4
-
-            //Inicio card5
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/Card5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Card4"
-                android:layout_margin="10dp"
-                android:background="@color/colorPrimaryDark"
-                app:cardCornerRadius="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    //Titulo card5
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Temperatura en tiempo real"
-                        android:textAlignment="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-
-                        <TextView
-                            android:id="@+id/textTemp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:text="__._°C"
-                            android:textSize="40dp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_margin="10dp" />
-
+                            android:src="@drawable/termometro"/>
 
                     </RelativeLayout>
-
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             //Fin card5
 
-            // Inicio card 6
+            //Inicio card6
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/Card6"
@@ -451,14 +387,66 @@
                 android:background="@color/colorPrimaryDark"
                 app:cardCornerRadius="20dp">
 
-                    //Inicio Gauge 1
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    //Titulo card6
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Temperatura del sensor"
+                        android:textAlignment="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textTempSensor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="__._°C"
+                            android:textSize="40dp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/termometro"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            //Fin Card6
+
+            // Inicio Card7
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Card7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Card6"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimaryDark"
+                app:cardCornerRadius="20dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        //Titulo Gauge 1
+                        //Titulo para Card 8
 
                         <TextView
                             android:id="@+id/TituloLedVerde"
@@ -488,30 +476,29 @@
                         android:textSize="15dp"
                         android:textStyle="bold" />
 
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-            // Fin card 6
+            // Fin card 7
 
-            // Inicio car 7, 8 y 9
+            // Inicio car 8, 9 y 10
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/Card7"
-                android:layout_below="@id/Card6"
+                android:id="@+id/Card8"
+                android:layout_below="@id/Card7"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
                 android:orientation="vertical"
                 android:background="@color/colorPrimaryDark"
                 app:cardCornerRadius="10dp">
 
-                //Inicio Gauge 1
+                //Inicio Boton ON Verde
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    //Titulo Gauge 1
+                    //Titulo Boton ON Verde
                     <TextView
                         android:id="@+id/TituloencenderledVerde"
                         android:layout_width="match_parent"
@@ -523,34 +510,14 @@
                         android:layout_gravity="center_horizontal" />
 
                     <Button
-                        android:id="@+id/enviarTexto"
+                        android:id="@+id/EncenderLedVerde"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="0dp"
                         android:layout_marginBottom="0dp"
                         android:text="ON"/>
 
-
                 </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/EncenderledVerde"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingTop="20dp"
-                        android:textSize="15dp"
-                        android:textAlignment="center"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal" />
-
-
-                </LinearLayout>
-                //Fin boton 1
 
             </androidx.cardview.widget.CardView>
 
@@ -559,8 +526,8 @@
             // Inicio card 8
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/Card8"
-            android:layout_below="@id/Card6"
+            android:id="@+id/Card9"
+            android:layout_below="@id/Card7"
             android:layout_width="130dp"
             android:layout_height="50dp"
             android:layout_marginLeft="140dp"
@@ -594,7 +561,6 @@
                         android:layout_marginBottom="0dp"
                         android:text="OFF"/>
 
-
                 </RelativeLayout>
 
                 <LinearLayout
@@ -621,8 +587,8 @@
 
             // Inicio Card 9
             <androidx.cardview.widget.CardView
-                android:id="@+id/Card9"
-                android:layout_below="@id/Card6"
+                android:id="@+id/Card10"
+                android:layout_below="@id/Card7"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="280dp"
@@ -684,10 +650,10 @@
             // Boton Rojo
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/Card10"
+                android:id="@+id/Card11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/Card9"
+                android:layout_below="@id/Card10"
                 android:layout_margin="10dp"
                 android:background="@color/colorPrimaryDark"
                 app:cardCornerRadius="20dp">
@@ -738,8 +704,8 @@
             // Inicio car 7, 8 y 9
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/Card11"
-                android:layout_below="@id/Card10"
+                android:id="@+id/Card12"
+                android:layout_below="@id/Card11"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
                 android:orientation="vertical"
@@ -800,8 +766,8 @@
             // Inicio card 12
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/Card12"
-                android:layout_below="@id/Card10"
+                android:id="@+id/Card13"
+                android:layout_below="@id/Card11"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="140dp"
@@ -862,8 +828,8 @@
 
             // Inicio Card 13
             <androidx.cardview.widget.CardView
-                android:id="@+id/Card13"
-                android:layout_below="@id/Card10"
+                android:id="@+id/Card14"
+                android:layout_below="@id/Card11"
                 android:layout_width="130dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="280dp"
