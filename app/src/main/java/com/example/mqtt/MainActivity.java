@@ -1,6 +1,7 @@
 package com.example.mqtt;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,19 +36,17 @@ public class MainActivity extends AppCompatActivity {
     CustomGauge gaugeAcel;
     TextView txtgaugeAcel;
 
-    CustomGauge gaugeHumedad;
-    TextView txtgaugeHumedad;
-
     //Card 5
     TextView txtTempRpi;
     //Card 6
     TextView txtTempSensor;
 
     //Card 8, 9 y 10
-    Button ButtonOnVerde,ButtonOffVerde,ButtonToggleVerde;
+    Button ButtonOnVerde, ButtonOffVerde, ButtonToggleVerde;
 
     // Card 12, 13 y 14
-    Button ButtonOnRojo,ButtonOffRojo,ButtonToggleRojo;
+    Button ButtonOnRojo, ButtonOffRojo, ButtonToggleRojo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +66,6 @@ public class MainActivity extends AppCompatActivity {
 
         gaugeAcel = (CustomGauge) findViewById(R.id.GaugeAceleracion);
         txtgaugeAcel = (TextView) findViewById(R.id.ValueGaugeAceleracion);
-
-        gaugeHumedad = (CustomGauge) findViewById(R.id.GaugeHumedad);
-        txtgaugeHumedad = (TextView) findViewById(R.id.ValueGaugeHumedad);
 
         //Fin Card 2, 3 y 4
 
@@ -99,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
                 String topic = "esp_mini/frdmkl46z";
                 String payload = "LVON";
 
-                try{
-                    client.publish(topic,payload.getBytes(),0, false);
-                } catch (MqttException e){
+                try {
+                    client.publish(topic, payload.getBytes(), 0, false);
+                } catch (MqttException e) {
                     e.printStackTrace();
                 }
             }
@@ -113,9 +109,9 @@ public class MainActivity extends AppCompatActivity {
                 String topic = "esp_mini/frdmkl46z";
                 String payload = "LVOFF";
 
-                try{
-                    client.publish(topic,payload.getBytes(),0, false);
-                } catch (MqttException e){
+                try {
+                    client.publish(topic, payload.getBytes(), 0, false);
+                } catch (MqttException e) {
                     e.printStackTrace();
                 }
             }
@@ -127,9 +123,9 @@ public class MainActivity extends AppCompatActivity {
                 String topic = "esp_mini/frdmkl46z";
                 String payload = "LVT";
 
-                try{
-                    client.publish(topic,payload.getBytes(),0, false);
-                } catch (MqttException e){
+                try {
+                    client.publish(topic, payload.getBytes(), 0, false);
+                } catch (MqttException e) {
                     e.printStackTrace();
                 }
             }
@@ -141,9 +137,9 @@ public class MainActivity extends AppCompatActivity {
                 String topic = "esp_mini/frdmkl46z";
                 String payload = "LRON";
 
-                try{
-                    client.publish(topic,payload.getBytes(),0, false);
-                } catch (MqttException e){
+                try {
+                    client.publish(topic, payload.getBytes(), 0, false);
+                } catch (MqttException e) {
                     e.printStackTrace();
                 }
             }
@@ -155,9 +151,9 @@ public class MainActivity extends AppCompatActivity {
                 String topic = "esp_mini/frdmkl46z";
                 String payload = "LROFF";
 
-                try{
-                    client.publish(topic,payload.getBytes(),0, false);
-                } catch (MqttException e){
+                try {
+                    client.publish(topic, payload.getBytes(), 0, false);
+                } catch (MqttException e) {
                     e.printStackTrace();
                 }
             }
@@ -169,16 +165,16 @@ public class MainActivity extends AppCompatActivity {
                 String topic = "esp_mini/frdmkl46z";
                 String payload = "LRT";
 
-                try{
-                    client.publish(topic,payload.getBytes(),0, false);
-                } catch (MqttException e){
+                try {
+                    client.publish(topic, payload.getBytes(), 0, false);
+                } catch (MqttException e) {
                     e.printStackTrace();
                 }
             }
         });
         String clientId = MqttClient.generateClientId();
-        client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.0.28:1883",
-                        clientId);
+        client = new MqttAndroidClient(this.getApplicationContext(), "tcp://192.168.1.101:1883",
+                clientId);
 
         try {
             IMqttToken token = client.connect();
@@ -211,49 +207,46 @@ public class MainActivity extends AppCompatActivity {
             public void messageArrived(String topic, MqttMessage message) throws Exception {
                 //Aqui cuando los mensajes lleguen.
 
-                if(topic.matches("esp_mini/frdmkl46z/LED_SW1")){
+                if (topic.matches("esp_mini/frdmkl46z/led_sw1")) {
                     Switch1estado = new String(message.getPayload());
 
-                    if(Switch1estado.matches("true")){
+                    if (Switch1estado.matches("true")) {
                         Switch1.setChecked(true);
-                    }else{
+                    } else {
                         Switch1.setChecked(false);
                     }
                 }
 
-                if(topic.matches("esp_mini/frdmkl46z/LED_SW3")){
+                if (topic.matches("esp_mini/frdmkl46z/led_sw3")) {
                     Switch3estado = new String(message.getPayload());
 
-                    if(Switch3estado.matches("true")){
+                    if (Switch3estado.matches("true")) {
                         Switch3.setChecked(true);
-                    }else{
+                    } else {
                         Switch3.setChecked(false);
                     }
                 }
 
                 // Card 2 y 3
 
-                if(topic.matches("esp_mini/frdmkl46z/ToNodeRed/LUZ")){
+                if (topic.matches("esp_mini/frdmkl46z/luz")) {
                     gaugeLuz.setValue(Integer.parseInt(new String(message.getPayload())));
                     txtgaugeLuz.setText(new String(message.getPayload()));
                 }
-                if(topic.matches("esp_mini/frdmkl46z/ToNodeRed/ACC")){
-                    gaugeAcel.setValue(Integer.parseInt(new String(message.getPayload())));
+                if (topic.matches("esp_mini/frdmkl46z/acc")) {
+                    gaugeAcel.setValue((int) Float.parseFloat(new String(message.getPayload())));
                     txtgaugeAcel.setText(new String(message.getPayload()));
                 }
 
-                if(topic.matches("esp_8266/HUMEDAD")){
-                    gaugeHumedad.setValue(Integer.parseInt(new String(message.getPayload())));
-                    txtgaugeHumedad.setText(new String(message.getPayload()));
+
+                if (topic.matches("servidor/cpu/temperatura")) {
+                    String tempRaspy = new String(message.getPayload());
+                    txtTempRpi.setText(tempRaspy + " ºC");
                 }
 
-                if(topic.matches("servidor/cpu/temperatura")){
-                    String tempRaspy = new String(message.getPayload());
-                    txtTempRpi.setText(tempRaspy  + " ºC");
-                }
-                if(topic.matches("esp_8266/TEMPSENSOR")){
+                if (topic.matches("esp_wemos/distancia")) {
                     String tempsensor = new String(message.getPayload());
-                    txtTempSensor.setText(tempsensor + " ºC");
+                    txtTempSensor.setText(tempsensor + " Cm");
                 }
             }
 
@@ -264,18 +257,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    private void suscripcionTopics(){
 
-        try{
-            client.subscribe("esp_mini/frdmkl46z/LED_SW1",0);
-            client.subscribe("esp_mini/frdmkl46z/LED_SW3",0);
-            client.subscribe("esp_mini/frdmkl46z/ToNodeRed/ACC",0);
-            client.subscribe("esp_mini/frdmkl46z/ToNodeRed/LUZ",0);
-            client.subscribe("esp_8266/HUMEDAD",0);
-            client.subscribe("servidor/cpu/temperatura",0);
-            client.subscribe("esp_8266/TEMPSENSOR",0);
+    private void suscripcionTopics() {
 
-        }catch (MqttException e){
+        try {
+            client.subscribe("esp_mini/frdmkl46z/led_sw1", 0);
+            client.subscribe("esp_mini/frdmkl46z/led_sw3", 0);
+            client.subscribe("esp_mini/frdmkl46z/acc", 0);
+            client.subscribe("esp_mini/frdmkl46z/luz", 0);
+            client.subscribe("servidor/cpu/temperatura", 0);
+            client.subscribe("esp_wemos/distancia", 0);
+
+        } catch (MqttException e) {
             e.printStackTrace();
         }
 
