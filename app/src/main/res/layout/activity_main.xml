@@ -340,7 +340,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/textTempSensor"
+                            android:id="@+id/textDistanciaSensada"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -570,6 +570,7 @@
                 android:layout_height="50dp"
                 android:orientation="vertical"
                 android:background="@color/colorPrimaryDark"
+                android:layout_marginBottom="10dp"
                 app:cardCornerRadius="10dp">
 
                 <RelativeLayout
@@ -647,7 +648,10 @@
 
 
                 </RelativeLayout>
+
+
             </androidx.cardview.widget.CardView>
+
 
             // Fin boton rojo
         </RelativeLayout>

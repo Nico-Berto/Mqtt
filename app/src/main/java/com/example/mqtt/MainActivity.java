@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Card 2 3 y 4
     CustomGauge gaugeLuz;
+
     TextView txtgaugeLuz;
 
     CustomGauge gaugeAcel;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     //Card 5
     TextView txtTempRpi;
     //Card 6
-    TextView txtTempSensor;
+    TextView txtDistSensor;
 
     //Card 8, 9 y 10
     Button ButtonOnVerde, ButtonOffVerde, ButtonToggleVerde;
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         //Fin Car5
 
         //Inicio Card6
-        txtTempSensor = (TextView) findViewById(R.id.textTempSensor);
+        txtDistSensor = (TextView) findViewById(R.id.textDistanciaSensada);
         //Fin Card7
 
         //Card 8, 9 y 10
@@ -246,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (topic.matches("esp_wemos/distancia")) {
                     String tempsensor = new String(message.getPayload());
-                    txtTempSensor.setText(tempsensor + " Cm");
+                    txtDistSensor.setText(tempsensor + " Cm");
                 }
             }
 
